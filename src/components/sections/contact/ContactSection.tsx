@@ -89,7 +89,7 @@ export default function ContactSection() {
       </div>
  {/* COPYRIGHT */}
 <div className="mt-20 text-center text-xs text-zinc-400">
-  © 2026 Rifqi Muhammad Aliya — All rights reserved.
+  © 2026 Muhammad Ali Abd Aziz — All rights reserved.
 </div>
     </section>
   )

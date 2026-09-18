@@ -172,9 +172,9 @@ export default function About() {
                   color: "var(--text-primary)",
                 }}
               >
-                <div>Rifqi</div>
                 <div>Muhammad</div>
-                <div>Aliya</div>
+                <div>Ali</div>
+                <div>Abd Aziz</div>
               </div>
             </motion.div>
 
@@ -198,10 +198,10 @@ export default function About() {
                 maxWidth: isMobile ? "100%" : "490px",
               }}
             >
-              Fresh Graduate SMK Rekayasa Perangkat Lunak lulusan 2026 dengan
-              passion di bidang frontend development dan UI modern. Berfokus
-              pada pembuatan website clean, responsif, dan visual yang kuat
-              untuk menghadirkan pengalaman digital yang optimal.
+              Bachelor of Computer Science (Hons.) candidate graduating in 2027
+              with a deep passion for web development and software development.
+              Focused on engineering clean, responsive, and high-performance digital
+              experiences while turning complex ideas into robust software solutions.
             </motion.p>
 
             {/* QUOTE */}

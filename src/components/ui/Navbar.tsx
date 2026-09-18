@@ -165,7 +165,7 @@ export default function Navbar() {
             letterSpacing: '0.1em',
           }}
         >
-          rifqi.dev
+          aliaziz.dev
         </span>
 
         {!isMobile && (
