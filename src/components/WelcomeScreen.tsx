@@ -11,7 +11,7 @@ export default function WelcomeScreen() {
       style={{
         width: '100%',
         height: '100vh',
-        background: '#000',
+        background: '#fafafa',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -31,7 +31,7 @@ export default function WelcomeScreen() {
         }}
         style={{
           textAlign: 'center',
-          color: 'white',
+          color: '#09090b',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -88,15 +88,15 @@ export default function WelcomeScreen() {
                 width: '42px',
                 height: '42px',
                 borderRadius: '999px',
-                border: '1px solid rgba(255,255,255,0.1)',
+                border: '1px solid rgba(0,0,0,0.08)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                background: 'rgba(255,255,255,0.03)',
+                background: 'rgba(0,0,0,0.03)',
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <Icon size={18} color="white" />
+              <Icon size={18} color="#09090b" />
             </motion.div>
           ))}
         </motion.div>
@@ -191,12 +191,12 @@ export default function WelcomeScreen() {
   style={{
     padding: '6px 14px',
     borderRadius: '999px',
-    border: '1px solid rgba(255,255,255,0.12)',
-    background: 'rgba(255,255,255,0.04)',
+    border: '1px solid rgba(0,0,0,0.08)',
+    background: 'rgba(0,0,0,0.04)',
     backdropFilter: 'blur(10px)',
     fontSize: '12px',
     letterSpacing: '0.12em',
-    color: 'rgba(255,255,255,0.7)',
+    color: 'rgba(0,0,0,0.65)',
   }}
 >
   www.rifqi.vercel.app

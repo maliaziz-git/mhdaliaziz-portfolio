@@ -5,14 +5,15 @@
 @tailwind utilities;
 
 :root {
-  --bg-primary: #0d0d0d;
-  --bg-secondary: #141414;
-  --bg-card: #1a1a1a;
-  --border: #2a2a2a;
-  --text-primary: #f0f0f0;
-  --text-secondary: #888888;
-  --text-muted: #555555;
-  --accent: #d4d4d4;
+  --bg-primary: #fafafa;
+  --bg-secondary: #f4f4f5;
+  --bg-card: #ffffff;
+  --border: #e4e4e7;
+  --text-primary: #09090b;
+  --text-secondary: #52525b;
+  --text-muted: #71717a;
+  --accent: #18181b;
+  color-scheme: light;
 }
 
 * {
@@ -70,7 +71,7 @@ body {
 
 input,
 textarea {
-  caret-color: white;
+  caret-color: #09090b;
 }
 
 .custom-scroll::-webkit-scrollbar {
@@ -82,10 +83,10 @@ textarea {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255,255,255,0.12);
+  background: rgba(0, 0, 0, 0.15);
   border-radius: 999px;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-  background: rgba(255,255,255,0.2);
+  background: rgba(0, 0, 0, 0.25);
 }

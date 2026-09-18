@@ -51,10 +51,10 @@ export default function ProjectDetailPage() {
     showCancelButton: true,
     confirmButtonText: "Ya, Hapus",
     cancelButtonText: "Batal",
-    background: "#101010",
-    color: "#fff",
+    background: "#ffffff",
+    color: "#09090b",
     confirmButtonColor: "#ef4444",
-    cancelButtonColor: "#27272a",
+    cancelButtonColor: "#71717a",
     reverseButtons: true,
   });
 
@@ -69,8 +69,8 @@ export default function ProjectDetailPage() {
       icon: "success",
       timer: 1800,
       showConfirmButton: false,
-      background: "#101010",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
     });
 
     router.push("/admin/projects");
@@ -79,8 +79,8 @@ export default function ProjectDetailPage() {
       title: "Gagal",
       text: "Project gagal dihapus.",
       icon: "error",
-      background: "#101010",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
     });
   }
 };
@@ -101,22 +101,22 @@ export default function ProjectDetailPage() {
       icon: "success",
       timer: 1800,
       showConfirmButton: false,
-      background: "#101010",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
     });
   } else {
     Swal.fire({
       title: "Gagal",
       text: "Update project gagal.",
       icon: "error",
-      background: "#101010",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
     });
   }
 };
   if (!project)
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center text-white">
+      <div className="min-h-screen bg-zinc-50 flex items-center justify-center text-zinc-600">
         Loading...
       </div>
     );
@@ -149,7 +149,7 @@ export default function ProjectDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white px-4 sm:px-6 md:px-8 lg:px-12 py-5 md:py-8">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900 px-4 sm:px-6 md:px-8 lg:px-12 py-5 md:py-8">
       {/* LIGHTBOX */}
       <AnimatePresence>
         {previewOpen && (
@@ -157,11 +157,11 @@ export default function ProjectDetailPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[999] bg-black/95 backdrop-blur-md flex items-center justify-center px-4"
+            className="fixed inset-0 z-[999] bg-black/90 backdrop-blur-md flex items-center justify-center px-4"
           >
             <button
               onClick={() => setPreviewOpen(false)}
-              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+              className="absolute top-4 right-4 md:top-6 md:right-6 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition"
             >
               <X size={18} />
             </button>
@@ -169,7 +169,7 @@ export default function ProjectDetailPage() {
             {currentImage > 0 && (
               <button
                 onClick={prevImage}
-                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+                className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition"
               >
                 <ChevronLeft size={18} />
               </button>
@@ -181,13 +181,13 @@ export default function ProjectDetailPage() {
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.25 }}
               src={galleryImages[currentImage]}
-              className="max-w-[92vw] max-h-[78vh] rounded-2xl object-contain"
+              className="max-w-[92vw] max-h-[78vh] rounded-2xl object-contain shadow-2xl"
             />
 
             {currentImage < galleryImages.length - 1 && (
               <button
                 onClick={nextImage}
-                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center"
+                className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center transition"
               >
                 <ChevronRight size={18} />
               </button>
@@ -202,7 +202,7 @@ export default function ProjectDetailPage() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
         onClick={() => router.back()}
-        className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white transition mb-6"
+        className="inline-flex items-center gap-2 text-sm text-zinc-500 hover:text-zinc-900 transition mb-6 font-medium"
       >
         <ArrowLeft size={14} />
         Back
@@ -221,15 +221,15 @@ export default function ProjectDetailPage() {
             <input
               value={form.title}
               onChange={(e) => setForm({ ...form, title: e.target.value })}
-              className="text-2xl md:text-4xl font-bold bg-transparent border-b border-white/15 w-full outline-none mb-3"
+              className="text-2xl md:text-4xl font-bold bg-transparent border-b border-zinc-300 w-full outline-none mb-3 text-zinc-900 focus:border-zinc-500 transition"
             />
           ) : (
-            <h1 className="text-[28px] sm:text-[34px] md:text-[42px] font-bold leading-tight tracking-tight mb-3">
+            <h1 className="text-[28px] sm:text-[34px] md:text-[42px] font-bold leading-tight tracking-tight mb-3 text-zinc-900">
               {project.title}
             </h1>
           )}
 
-          <div className="w-16 h-[2px] rounded-full bg-white/20 mb-5" />
+          <div className="w-16 h-[2px] rounded-full bg-zinc-300 mb-5" />
 
           {editMode ? (
             <textarea
@@ -240,10 +240,10 @@ export default function ProjectDetailPage() {
                   description: e.target.value,
                 })
               }
-              className="w-full min-h-[120px] bg-[#111] border border-white/10 rounded-2xl p-4 text-sm outline-none mb-6"
+              className="w-full min-h-[120px] bg-white border border-zinc-200 rounded-2xl p-4 text-sm text-zinc-900 placeholder:text-zinc-400 outline-none mb-6 shadow-sm focus:border-zinc-400 transition"
             />
           ) : (
-            <p className="text-sm md:text-[13px] leading-7 text-white/60 text-justify mb-6">
+            <p className="text-sm md:text-[13px] leading-7 text-zinc-600 text-justify mb-6">
               {project.description}
             </p>
           )}
@@ -252,31 +252,31 @@ export default function ProjectDetailPage() {
           <div className="grid grid-cols-2 gap-3 mb-6">
             <motion.div
               whileHover={{ y: -2 }}
-              className="bg-[#101010] border border-white/10 rounded-2xl px-4 py-4 flex items-center gap-3"
+              className="bg-white border border-zinc-200 shadow-sm rounded-2xl px-4 py-4 flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-zinc-100 text-zinc-700 flex items-center justify-center shrink-0">
                 <Code2 size={16} />
               </div>
 
               <div>
-                <p className="text-lg font-semibold">{tech.length}</p>
+                <p className="text-lg font-semibold text-zinc-900">{tech.length}</p>
 
-                <p className="text-[11px] text-white/40">Total Technology</p>
+                <p className="text-[11px] text-zinc-500">Total Technology</p>
               </div>
             </motion.div>
 
             <motion.div
               whileHover={{ y: -2 }}
-              className="bg-[#101010] border border-white/10 rounded-2xl px-4 py-4 flex items-center gap-3"
+              className="bg-white border border-zinc-200 shadow-sm rounded-2xl px-4 py-4 flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-zinc-100 text-zinc-700 flex items-center justify-center shrink-0">
                 <Layers size={16} />
               </div>
 
               <div>
-                <p className="text-lg font-semibold">{features.length}</p>
+                <p className="text-lg font-semibold text-zinc-900">{features.length}</p>
 
-                <p className="text-[11px] text-white/40">Main Features</p>
+                <p className="text-[11px] text-zinc-500">Main Features</p>
               </div>
             </motion.div>
           </div>
@@ -293,19 +293,19 @@ export default function ProjectDetailPage() {
                   })
                 }
                 placeholder="Live Demo URL"
-                className="bg-[#111] border border-white/10 rounded-xl px-4 py-3 w-full sm:w-[260px] outline-none text-sm"
+                className="bg-white border border-zinc-200 rounded-xl px-4 py-3 w-full sm:w-[260px] outline-none text-sm text-zinc-900 placeholder:text-zinc-400 shadow-sm focus:border-zinc-400 transition"
               />
             ) : project.live_url ? (
               <a
                 href={project.live_url}
                 target="_blank"
-                className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-[#101010] border border-white/10 hover:bg-white/5 transition"
+                className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-800 hover:bg-zinc-100 shadow-sm transition"
               >
                 <ExternalLink size={15} />
-                <span className="text-sm">Live Demo</span>
+                <span className="text-sm font-medium">Live Demo</span>
               </a>
             ) : (
-              <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-[#101010] border border-white/10 text-white/45">
+              <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-400">
                 <ExternalLink size={15} />
                 <span className="text-sm">No Link</span>
               </div>
@@ -321,19 +321,19 @@ export default function ProjectDetailPage() {
                   })
                 }
                 placeholder="Github URL"
-                className="bg-[#111] border border-white/10 rounded-xl px-4 py-3 w-full sm:w-[260px] outline-none text-sm"
+                className="bg-white border border-zinc-200 rounded-xl px-4 py-3 w-full sm:w-[260px] outline-none text-sm text-zinc-900 placeholder:text-zinc-400 shadow-sm focus:border-zinc-400 transition"
               />
             ) : project.github_url ? (
               <a
                 href={project.github_url}
                 target="_blank"
-                className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-[#101010] border border-white/10 hover:bg-white/5 transition"
+                className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-800 hover:bg-zinc-100 shadow-sm transition"
               >
                 <GitBranch size={15} />
-                <span className="text-sm">Github</span>
+                <span className="text-sm font-medium">Github</span>
               </a>
             ) : (
-              <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-[#101010] border border-white/10 text-white/45">
+              <div className="flex items-center justify-center sm:justify-start gap-2 px-4 py-3 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-400">
                 <GitBranch size={15} />
                 <span className="text-sm">No Link</span>
               </div>
@@ -343,8 +343,8 @@ export default function ProjectDetailPage() {
           {/* TECH STACK */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <Code2 size={15} className="text-white/70" />
-              <p className="text-sm font-semibold">Technologies Used</p>
+              <Code2 size={15} className="text-zinc-600" />
+              <p className="text-sm font-semibold text-zinc-900">Technologies Used</p>
             </div>
 
             {editMode ? (
@@ -356,14 +356,14 @@ export default function ProjectDetailPage() {
                     technologies: e.target.value,
                   })
                 }
-                className="w-full bg-[#111] border border-white/10 rounded-xl px-4 py-3 outline-none"
+                className="w-full bg-white border border-zinc-200 rounded-xl px-4 py-3 outline-none text-sm text-zinc-900 placeholder:text-zinc-400 shadow-sm focus:border-zinc-400 transition"
               />
             ) : (
               <div className="flex flex-wrap gap-2">
                 {tech.map((t: string, i: number) => (
                   <span
                     key={i}
-                    className="px-3 py-2 rounded-xl bg-[#101010] border border-white/10 text-[11px] text-white/75"
+                    className="px-3 py-2 rounded-xl bg-white border border-zinc-200 shadow-sm text-[11px] text-zinc-700 font-medium"
                   >
                     {t.trim()}
                   </span>
@@ -383,7 +383,7 @@ export default function ProjectDetailPage() {
           {/* GALLERY */}
           {galleryImages.length > 0 && (
             <div className="mb-6 xl:max-w-[520px] xl:ml-auto">
-              <div className="relative rounded-[28px] overflow-hidden border border-white/10 bg-[#101010] shadow-[0_0_40px_rgba(255,255,255,0.03)]">
+              <div className="relative rounded-[28px] overflow-hidden border border-zinc-200 bg-white shadow-sm">
                 <motion.img
                   key={currentImage}
                   initial={{
@@ -405,7 +405,7 @@ export default function ProjectDetailPage() {
                 {currentImage > 0 && (
                   <button
                     onClick={prevImage}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white backdrop-blur-md flex items-center justify-center transition"
                   >
                     <ChevronLeft size={17} />
                   </button>
@@ -414,7 +414,7 @@ export default function ProjectDetailPage() {
                 {currentImage < galleryImages.length - 1 && (
                   <button
                     onClick={nextImage}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/60 hover:bg-black text-white backdrop-blur-md flex items-center justify-center transition"
                   >
                     <ChevronRight size={17} />
                   </button>
@@ -429,8 +429,8 @@ export default function ProjectDetailPage() {
                       onClick={() => setCurrentImage(i)}
                       className={`transition-all rounded-full ${
                         currentImage === i
-                          ? "w-7 h-2 bg-white"
-                          : "w-2 h-2 bg-white/30"
+                          ? "w-7 h-2 bg-zinc-900"
+                          : "w-2 h-2 bg-zinc-300"
                       }`}
                     />
                   ))}
@@ -444,11 +444,11 @@ export default function ProjectDetailPage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="bg-[#101010] border border-white/10 rounded-3xl p-5 md:p-6 xl:max-w-[520px] xl:ml-auto"
+            className="bg-white border border-zinc-200 shadow-sm rounded-3xl p-5 md:p-6 xl:max-w-[520px] xl:ml-auto"
           >
             <div className="flex items-center gap-2 mb-4">
-              <Sparkles size={15} className="text-white/70" />
-              <p className="text-sm font-semibold">Key Features</p>
+              <Sparkles size={15} className="text-zinc-600" />
+              <p className="text-sm font-semibold text-zinc-900">Key Features</p>
             </div>
 
             {editMode ? (
@@ -460,13 +460,13 @@ export default function ProjectDetailPage() {
                     key_features: e.target.value,
                   })
                 }
-                className="w-full min-h-[160px] bg-[#0f0f0f] border border-white/10 rounded-xl p-4 outline-none"
+                className="w-full min-h-[160px] bg-zinc-50 border border-zinc-200 rounded-xl p-4 outline-none text-sm text-zinc-900 placeholder:text-zinc-400 focus:bg-white focus:border-zinc-400 transition"
               />
             ) : (
-              <ul className="space-y-3 text-sm text-white/65 leading-6">
+              <ul className="space-y-3 text-sm text-zinc-600 leading-6">
                 {features.map((f: string, i: number) => (
                   <li key={i} className="flex gap-3">
-                    <span className="text-white/35 mt-[2px]">•</span>
+                    <span className="text-zinc-400 mt-[2px]">•</span>
 
                     <span>{f.trim()}</span>
                   </li>
@@ -483,14 +483,14 @@ export default function ProjectDetailPage() {
           <>
             <button
               onClick={handleUpdate}
-              className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-white text-black font-medium hover:opacity-90 transition"
+              className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-zinc-900 text-white font-medium hover:bg-zinc-800 shadow-sm transition text-sm"
             >
               Save
             </button>
 
             <button
               onClick={() => setEditMode(false)}
-              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-white/10 hover:bg-white/5 transition"
+              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-zinc-200 text-zinc-700 hover:bg-zinc-100 transition text-sm font-medium"
             >
               Cancel
             </button>
@@ -499,14 +499,14 @@ export default function ProjectDetailPage() {
           <>
             <button
               onClick={() => setEditMode(true)}
-              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-white/10 hover:bg-white/5 transition"
+              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-zinc-200 text-zinc-700 hover:bg-zinc-100 transition text-sm font-medium"
             >
               Edit
             </button>
 
             <button
               onClick={handleDelete}
-              className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-red-500 hover:bg-red-600 transition"
+              className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-red-600 text-white hover:bg-red-700 shadow-sm transition text-sm font-medium"
             >
               Delete
             </button>

@@ -145,12 +145,12 @@ export default function PortfolioDetailPage() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
-        className="min-h-screen text-white px-6 md:px-10 lg:px-16 py-8 relative overflow-hidden"
+        className="min-h-screen text-zinc-900 px-6 md:px-10 lg:px-16 py-8 relative overflow-hidden bg-[#fafafa]"
       >
         {/* Background */}
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,#1a1a1a_0%,#0a0a0a_35%,#050505_100%)]" />
-        <div className="absolute top-[-200px] left-[-120px] w-[500px] h-[500px] rounded-full bg-white/[0.03] blur-[140px] -z-10" />
-        <div className="absolute bottom-[-250px] right-[-150px] w-[550px] h-[550px] rounded-full bg-white/[0.04] blur-[160px] -z-10" />
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,#f8fafc_0%,#f1f5f9_35%,#e2e8f0_100%)]" />
+        <div className="absolute top-[-200px] left-[-120px] w-[500px] h-[500px] rounded-full bg-zinc-300/30 blur-[140px] -z-10" />
+        <div className="absolute bottom-[-250px] right-[-150px] w-[550px] h-[550px] rounded-full bg-slate-300/30 blur-[160px] -z-10" />
 
         <div className="grid lg:grid-cols-[1fr_0.85fr] gap-10 items-start">
           {/* LEFT */}
@@ -175,7 +175,7 @@ export default function PortfolioDetailPage() {
             >
               <button
                 onClick={handleBack}
-                className="inline-flex items-center gap-2 text-[13px] text-white/50 hover:text-white transition-all duration-300 mb-6"
+                className="inline-flex items-center gap-2 text-[13px] text-zinc-500 hover:text-zinc-900 transition-all duration-300 mb-6"
               >
                 <ArrowLeft size={14} />
                 Back
@@ -189,7 +189,7 @@ export default function PortfolioDetailPage() {
                   delay: 0.08,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="text-[28px] md:text-[38px] font-bold leading-tight tracking-tight mb-3"
+                className="text-[28px] md:text-[38px] font-bold leading-tight tracking-tight mb-3 text-zinc-900"
               >
                 {project.title}
               </motion.h1>
@@ -202,7 +202,7 @@ export default function PortfolioDetailPage() {
                   delay: 0.15,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="h-[2px] rounded-full bg-gradient-to-r from-white/40 to-white/5 mb-5"
+                className="h-[2px] rounded-full bg-gradient-to-r from-zinc-400 to-zinc-200 mb-5"
               />
             </motion.div>
 
@@ -214,7 +214,7 @@ export default function PortfolioDetailPage() {
                 delay: 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="text-[12px] leading-6 text-white/60 text-justify mb-7"
+              className="text-[12px] leading-6 text-zinc-600 text-justify mb-7"
             >
               {project.description}
             </motion.p>
@@ -232,15 +232,15 @@ export default function PortfolioDetailPage() {
             >
               <motion.div
                 whileHover={{ y: -3 }}
-                className="bg-gradient-to-br from-[#111] to-[#171717] border border-white/10 rounded-2xl p-3 flex items-center gap-3"
+                className="bg-white border border-zinc-200 shadow-sm rounded-2xl p-3 flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 text-zinc-700 flex items-center justify-center">
                   <Code2 size={16} />
                 </div>
 
                 <div>
-                  <p className="text-base font-semibold">{tech.length}</p>
-                  <p className="text-[10px] text-white/40">
+                  <p className="text-base font-semibold text-zinc-900">{tech.length}</p>
+                  <p className="text-[10px] text-zinc-500">
                     Technologies Used
                   </p>
                 </div>
@@ -248,15 +248,15 @@ export default function PortfolioDetailPage() {
 
               <motion.div
                 whileHover={{ y: -3 }}
-                className="bg-gradient-to-br from-[#111] to-[#171717] border border-white/10 rounded-2xl p-3 flex items-center gap-3"
+                className="bg-white border border-zinc-200 shadow-sm rounded-2xl p-3 flex items-center gap-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 text-zinc-700 flex items-center justify-center">
                   <Layers size={16} />
                 </div>
 
                 <div>
-                  <p className="text-base font-semibold">{features.length}</p>
-                  <p className="text-[10px] text-white/40">Key Features</p>
+                  <p className="text-base font-semibold text-zinc-900">{features.length}</p>
+                  <p className="text-[10px] text-zinc-500">Key Features</p>
                 </div>
               </motion.div>
             </motion.div>
@@ -276,13 +276,13 @@ export default function PortfolioDetailPage() {
                 <a
                   href={project.live_url}
                   target="_blank"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-br from-[#111] to-[#181818] border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all duration-300 text-sm"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm transition-all duration-300 text-sm font-medium"
                 >
                   <ExternalLink size={14} />
                   Live Demo
                 </a>
               ) : (
-                <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#101010] border border-white/10 text-white/40 text-sm">
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-400 text-sm">
                   <ExternalLink size={14} />
                   No Link
                 </div>
@@ -292,20 +292,19 @@ export default function PortfolioDetailPage() {
                 <a
                   href={project.github_url}
                   target="_blank"
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-br from-[#111] to-[#181818] border border-white/10 hover:bg-white/5 hover:border-white/20 transition-all duration-300 text-sm"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-zinc-200 text-zinc-800 hover:bg-zinc-50 shadow-sm transition-all duration-300 text-sm font-medium"
                 >
                   <GitBranch size={14} />
                   Github
                 </a>
               ) : (
-                <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#101010] border border-white/10 text-white/40 text-sm">
+                <div className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-zinc-100 border border-zinc-200 text-zinc-400 text-sm">
                   <GitBranch size={14} />
                   No Link
                 </div>
               )}
             </motion.div>
 
-            {/* TECH */}
             {/* TECH */}
 <motion.div
   initial={{ opacity: 0 }}
@@ -317,8 +316,8 @@ export default function PortfolioDetailPage() {
   }}
 >
   <div className="flex items-center gap-2 mb-3">
-    <Code2 size={14} className="text-white/70" />
-    <p className="text-[13px] font-semibold">
+    <Code2 size={14} className="text-zinc-600" />
+    <p className="text-[13px] font-semibold text-zinc-800">
       Technologies Used
     </p>
   </div>
@@ -334,9 +333,9 @@ export default function PortfolioDetailPage() {
     duration: 0.5,
     ease: [0.22, 1, 0.36, 1],
   }}
-  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-br from-[#101010] to-[#181818] border border-white/10 text-[11px] text-white/75"
+  className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-zinc-200 shadow-sm text-[11px] text-zinc-700"
 >
-  <Box size={11} className="text-white/40" />
+  <Box size={11} className="text-zinc-400" />
   {t.trim()}
 </motion.div>
   ))}
@@ -366,7 +365,7 @@ export default function PortfolioDetailPage() {
                 }}
                 className="mb-5"
               >
-                <div className="relative rounded-[26px] overflow-hidden border border-white/10 bg-gradient-to-br from-[#111] to-[#171717] max-w-[560px] mx-auto">
+                <div className="relative rounded-[26px] overflow-hidden border border-zinc-200 bg-white shadow-sm max-w-[560px] mx-auto">
                   <motion.img
                     key={currentImage}
                     initial={{ opacity: 0, x: 60 }}
@@ -383,7 +382,7 @@ export default function PortfolioDetailPage() {
                   {currentImage > 0 && (
                     <button
                       onClick={prevImage}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center hover:bg-black/80 transition-all duration-300"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 text-zinc-800 shadow-md backdrop-blur-md flex items-center justify-center hover:bg-white transition-all duration-300"
                     >
                       <ChevronLeft size={16} />
                     </button>
@@ -392,7 +391,7 @@ export default function PortfolioDetailPage() {
                   {currentImage < galleryImages.length - 1 && (
                     <button
                       onClick={nextImage}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md flex items-center justify-center hover:bg-black/80 transition-all duration-300"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/80 text-zinc-800 shadow-md backdrop-blur-md flex items-center justify-center hover:bg-white transition-all duration-300"
                     >
                       <ChevronRight size={16} />
                     </button>
@@ -419,8 +418,8 @@ export default function PortfolioDetailPage() {
                         onClick={() => setCurrentImage(i)}
                         className={`rounded-full transition-all duration-300 ${
                           currentImage === i
-                            ? 'w-6 h-1.5 bg-white'
-                            : 'w-1.5 h-1.5 bg-white/30'
+                            ? 'w-6 h-1.5 bg-zinc-900'
+                            : 'w-1.5 h-1.5 bg-zinc-300'
                         }`}
                       />
                     ))}
@@ -439,14 +438,14 @@ export default function PortfolioDetailPage() {
                 ease: [0.22, 1, 0.36, 1],
               }}
               whileHover={{ y: -2 }}
-              className="bg-gradient-to-br from-[#101010] to-[#171717] border border-white/10 rounded-3xl p-5"
+              className="bg-white border border-zinc-200 shadow-sm rounded-3xl p-5"
             >
               <div className="flex items-center gap-2 mb-4">
-                <Sparkles size={14} className="text-white/70" />
-                <p className="text-sm font-semibold">Key Features</p>
+                <Sparkles size={14} className="text-zinc-600" />
+                <p className="text-sm font-semibold text-zinc-900">Key Features</p>
               </div>
 
-              <ul className="space-y-2.5 text-[12px] text-white/65 leading-6">
+              <ul className="space-y-2.5 text-[12px] text-zinc-600 leading-6">
                 {features.map((f: string, i: number) => (
                   <motion.li
                     key={i}
@@ -465,7 +464,7 @@ export default function PortfolioDetailPage() {
                     }}
                     className="flex gap-3"
                   >
-                    <span className="text-white/35">•</span>
+                    <span className="text-zinc-400">•</span>
                     <span>{f.trim()}</span>
                   </motion.li>
                 ))}

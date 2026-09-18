@@ -62,10 +62,10 @@ export default function AdminCommentsPage() {
       showCancelButton: true,
       confirmButtonText: "Delete",
       cancelButtonText: "Cancel",
-      background: "#0f0f0f",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
       confirmButtonColor: "#ef4444",
-      cancelButtonColor: "#27272a",
+      cancelButtonColor: "#71717a",
     });
 
     if (!result.isConfirmed) return;
@@ -80,8 +80,8 @@ export default function AdminCommentsPage() {
       icon: "success",
       timer: 1600,
       showConfirmButton: false,
-      background: "#0f0f0f",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
     });
   };
 
@@ -177,7 +177,7 @@ export default function AdminCommentsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900">
       <Sidebar />
 
       <main className="lg:ml-[250px] min-h-screen px-4 sm:px-6 lg:px-8 pt-[90px] lg:pt-8 pb-8">
@@ -185,16 +185,16 @@ export default function AdminCommentsPage() {
           {/* HEADER */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold">Comments</h1>
+              <h1 className="text-2xl md:text-3xl font-bold text-zinc-900">Comments</h1>
 
-              <p className="text-sm text-white/40 mt-1">
+              <p className="text-sm text-zinc-500 mt-1">
                 Manage portfolio comments
               </p>
             </div>
 
             <button
               onClick={fetchComments}
-              className="h-11 px-5 rounded-2xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.08] transition flex items-center justify-center gap-2 text-sm w-full sm:w-fit"
+              className="h-11 px-5 rounded-2xl border border-zinc-200 bg-white text-zinc-700 hover:bg-zinc-100 shadow-sm transition flex items-center justify-center gap-2 text-sm w-full sm:w-fit cursor-pointer font-medium"
             >
               <RefreshCcw size={14} />
               Refresh
@@ -204,11 +204,11 @@ export default function AdminCommentsPage() {
           {/* CONTENT */}
           <div className="space-y-4">
             {loading ? (
-              <div className="rounded-3xl border border-white/10 bg-white/[0.03] py-20 text-center text-white/40">
+              <div className="rounded-3xl border border-zinc-200 bg-white py-20 text-center text-zinc-400 shadow-sm">
                 Loading comments...
               </div>
             ) : comments.length === 0 ? (
-              <div className="rounded-3xl border border-white/10 bg-white/[0.03] py-20 flex flex-col items-center gap-3 text-white/40">
+              <div className="rounded-3xl border border-zinc-200 bg-white py-20 flex flex-col items-center gap-3 text-zinc-400 shadow-sm">
                 <MessageSquare size={28} />
                 No comments yet
               </div>
@@ -216,7 +216,7 @@ export default function AdminCommentsPage() {
               comments.map((comment) => (
                 <div
                   key={comment.id}
-                  className="rounded-3xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 hover:border-white/20 transition"
+                  className="rounded-3xl border border-zinc-200 bg-white p-4 sm:p-5 shadow-sm hover:border-zinc-300 transition"
                 >
                   <div className="flex flex-col gap-5">
                     {/* TOP */}
@@ -224,35 +224,35 @@ export default function AdminCommentsPage() {
                       {/* LEFT */}
                       <div className="flex-1 min-w-0">
                         <div className="flex flex-wrap items-center gap-2 mb-3">
-                          <p className="font-medium text-[14px] break-all">
+                          <p className="font-semibold text-[14px] text-zinc-900 break-all">
                             {comment.name || comment.username}
                           </p>
 
                           {comment.is_pinned && (
-                            <span className="text-[9px] px-2 py-[3px] rounded-full bg-yellow-500/15 text-yellow-300 border border-yellow-500/20">
+                            <span className="text-[9px] px-2 py-[3px] rounded-full bg-amber-100 text-amber-800 border border-amber-200 font-medium">
                               PINNED
                             </span>
                           )}
 
                           {comment.liked_by_admin && (
-                            <span className="text-[9px] px-2 py-[3px] rounded-full bg-pink-500/15 text-pink-300 border border-pink-500/20">
+                            <span className="text-[9px] px-2 py-[3px] rounded-full bg-pink-100 text-pink-800 border border-pink-200 font-medium">
                               LIKED
                             </span>
                           )}
                         </div>
 
-                        <p className="text-[13px] text-white/60 leading-6 mb-3 break-words">
+                        <p className="text-[13px] text-zinc-600 leading-6 mb-3 break-words">
                           {comment.comment}
                         </p>
 
                         {comment.image_url && (
                           <img
                             src={comment.image_url}
-                            className="rounded-2xl border border-white/10 w-full max-w-full sm:max-w-[260px] object-cover mb-4"
+                            className="rounded-2xl border border-zinc-200 w-full max-w-full sm:max-w-[260px] object-cover mb-4"
                           />
                         )}
 
-                        <div className="flex flex-wrap items-center gap-3 text-[11px] text-white/35">
+                        <div className="flex flex-wrap items-center gap-3 text-[11px] text-zinc-400">
                           <span>{comment.likes || 0} likes</span>
 
                           <span>
@@ -271,10 +271,10 @@ export default function AdminCommentsPage() {
                               comment.liked_by_admin,
                             )
                           }
-                          className={`w-11 h-11 rounded-2xl border flex items-center justify-center transition ${
+                          className={`w-11 h-11 rounded-2xl border flex items-center justify-center transition cursor-pointer ${
                             comment.liked_by_admin
-                              ? "bg-pink-500/20 border-pink-500/30 text-pink-300"
-                              : "bg-white/5 border-white/10 hover:bg-white/10"
+                              ? "bg-pink-100 border-pink-200 text-pink-600"
+                              : "bg-zinc-50 border-zinc-200 hover:bg-zinc-100 text-zinc-700"
                           }`}
                         >
                           <Heart
@@ -289,10 +289,10 @@ export default function AdminCommentsPage() {
                           onClick={() =>
                             togglePin(comment.id, comment.is_pinned)
                           }
-                          className={`w-11 h-11 rounded-2xl border flex items-center justify-center transition ${
+                          className={`w-11 h-11 rounded-2xl border flex items-center justify-center transition cursor-pointer ${
                             comment.is_pinned
-                              ? "bg-yellow-500/20 border-yellow-500/30 text-yellow-300"
-                              : "bg-white/5 border-white/10 hover:bg-white/10"
+                              ? "bg-amber-100 border-amber-200 text-amber-700"
+                              : "bg-zinc-50 border-zinc-200 hover:bg-zinc-100 text-zinc-700"
                           }`}
                         >
                           <Pin size={15} />
@@ -300,7 +300,7 @@ export default function AdminCommentsPage() {
 
                         <button
                           onClick={() => deleteComment(comment.id)}
-                          className="w-11 h-11 rounded-2xl bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition flex items-center justify-center text-red-300"
+                          className="w-11 h-11 rounded-2xl bg-red-50 border border-red-200 hover:bg-red-100 transition flex items-center justify-center text-red-600 cursor-pointer"
                         >
                           <Trash2 size={15} />
                         </button>
@@ -308,7 +308,7 @@ export default function AdminCommentsPage() {
                     </div>
 
                     {/* REPLY */}
-                    <div className="border-t border-white/5 pt-4">
+                    <div className="border-t border-zinc-100 pt-4">
                       <div className="flex items-center gap-2">
                         <input
                           value={replyText[comment.id] || ""}
@@ -319,12 +319,12 @@ export default function AdminCommentsPage() {
                             }))
                           }
                           placeholder="Reply..."
-                          className="flex-1 h-11 px-4 rounded-2xl bg-black/20 border border-white/10 outline-none text-sm"
+                          className="flex-1 h-11 px-4 rounded-2xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 outline-none text-sm focus:bg-white focus:border-zinc-400"
                         />
 
                         <button
                           onClick={() => sendReply(comment.id)}
-                          className="h-11 min-w-[54px] px-4 rounded-2xl bg-white text-black hover:opacity-90 transition flex items-center justify-center"
+                          className="h-11 min-w-[54px] px-4 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm transition flex items-center justify-center cursor-pointer"
                         >
                           <Send size={15} />
                         </button>

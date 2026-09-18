@@ -239,6 +239,7 @@ export default function Hero({ showApp }: HeroProps) {
                 borderRadius: 999,
                 padding: "5px 12px",
                 backgroundColor: "var(--bg-card)",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
               }}
             >
               {skill}

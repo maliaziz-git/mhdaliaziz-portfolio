@@ -257,12 +257,13 @@ export default function About() {
                     gap: 6,
                     padding: "10px 18px",
                     borderRadius: 8,
-                    border: "1px solid white",
-                    background: "white",
-                    color: "black",
+                    border: "1px solid #18181b",
+                    background: "#18181b",
+                    color: "#ffffff",
                     fontSize: 13,
                     fontWeight: 600,
                     cursor: "pointer",
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                     transition: "transform 0.25s ease, opacity 0.25s ease",
                   }}
                   onMouseEnter={(e) => {
@@ -289,22 +290,23 @@ export default function About() {
                   gap: 6,
                   padding: "10px 18px",
                   borderRadius: 8,
-                  border: "1px solid white",
-                  background: "transparent",
-                  color: "white",
+                  border: "1px solid var(--border)",
+                  background: "var(--bg-card)",
+                  color: "var(--text-primary)",
                   fontSize: 13,
                   fontWeight: 600,
                   cursor: "pointer",
-                  transition: "transform 0.25s ease, opacity 0.25s ease",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+                  transition: "transform 0.25s ease, opacity 0.25s ease, background-color 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform =
                     "translateY(-2px) scale(1.03)";
-                  e.currentTarget.style.opacity = "0.85";
+                  e.currentTarget.style.backgroundColor = "var(--bg-secondary)";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "translateY(0) scale(1)";
-                  e.currentTarget.style.opacity = "1";
+                  e.currentTarget.style.backgroundColor = "var(--bg-card)";
                 }}
               >
                 <ArrowUpRight size={14} />
@@ -331,6 +333,8 @@ export default function About() {
                   padding: 12,
                   borderRadius: "50%",
                   border: "1px solid var(--border)",
+                  background: "var(--bg-card)",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.06)",
                   transform: "translateX(-80px)",
                 }}
               >
@@ -374,6 +378,7 @@ export default function About() {
                 borderRadius: 16,
                 border: "1px solid var(--border)",
                 background: "var(--bg-card)",
+                boxShadow: "0 2px 10px rgba(0,0,0,0.04)",
                 cursor: "pointer",
               }}
             >

@@ -137,29 +137,29 @@ export default function AddProjectModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-md flex items-center justify-center px-3 sm:px-6 py-6">
+    <div className="fixed inset-0 z-[999] bg-black/40 backdrop-blur-md flex items-center justify-center px-3 sm:px-6 py-6">
       {toast && (
-        <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-2 rounded-xl text-sm shadow-lg z-50">
+        <div className="absolute top-5 left-1/2 -translate-x-1/2 bg-zinc-900 text-white px-4 py-2 rounded-xl text-sm shadow-lg z-50">
           {toast}
         </div>
       )}
 
-      <div className="w-full max-w-[820px] bg-[#0f0f0f] border border-white/10 rounded-3xl overflow-hidden max-h-[92vh] flex flex-col">
+      <div className="w-full max-w-[820px] bg-white border border-zinc-200 shadow-xl rounded-3xl overflow-hidden max-h-[92vh] flex flex-col text-zinc-900">
         {/* HEADER */}
-        <div className="px-4 sm:px-6 py-4 border-b border-white/10 flex items-center justify-between shrink-0">
+        <div className="px-4 sm:px-6 py-4 border-b border-zinc-200 flex items-center justify-between shrink-0">
           <div>
-            <h2 className="text-base sm:text-lg font-semibold">
+            <h2 className="text-base sm:text-lg font-semibold text-zinc-900">
               Add Project
             </h2>
 
-            <p className="text-[11px] sm:text-xs text-white/40 mt-1">
+            <p className="text-[11px] sm:text-xs text-zinc-500 mt-1">
               Simple portfolio input
             </p>
           </div>
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center transition"
+            className="w-9 h-9 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-600 flex items-center justify-center transition"
           >
             <X size={16} />
           </button>
@@ -174,7 +174,7 @@ export default function AddProjectModal({
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_140px] gap-4">
             {/* TITLE */}
             <div>
-              <label className="text-xs text-white/50">
+              <label className="text-xs font-medium text-zinc-600">
                 Project Title
               </label>
 
@@ -183,23 +183,23 @@ export default function AddProjectModal({
                 onChange={(e) =>
                   setTitle(e.target.value)
                 }
-                className="w-full mt-2 px-4 py-3 bg-[#111] border border-white/10 rounded-2xl outline-none text-sm"
+                className="w-full mt-2 px-4 py-3 bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none text-sm focus:bg-white focus:border-zinc-400 transition"
               />
             </div>
 
             {/* UPLOAD */}
             <div>
-              <label className="text-xs text-white/50 block mb-2">
+              <label className="text-xs font-medium text-zinc-600 block mb-2">
                 Upload
               </label>
 
-              <label className="h-[86px] border border-dashed border-white/15 rounded-2xl bg-[#111] hover:bg-[#151515] transition flex flex-col items-center justify-center cursor-pointer">
+              <label className="h-[86px] border border-dashed border-zinc-300 rounded-2xl bg-zinc-50 hover:bg-zinc-100/70 transition flex flex-col items-center justify-center cursor-pointer">
                 <Upload
                   size={18}
-                  className="mb-1 text-white/50"
+                  className="mb-1 text-zinc-400"
                 />
 
-                <span className="text-[11px] text-white/60">
+                <span className="text-[11px] text-zinc-500">
                   Upload Images
                 </span>
 
@@ -219,7 +219,7 @@ export default function AddProjectModal({
               {previews.map((img, i) => (
                 <div
                   key={i}
-                  className="relative rounded-2xl overflow-hidden border border-white/10"
+                  className="relative rounded-2xl overflow-hidden border border-zinc-200 shadow-sm"
                 >
                   <img
                     src={img}
@@ -229,7 +229,7 @@ export default function AddProjectModal({
                   <button
                     type="button"
                     onClick={() => removeImage(i)}
-                    className="absolute top-2 right-2 bg-black/70 hover:bg-black rounded-full p-1.5"
+                    className="absolute top-2 right-2 bg-black/60 hover:bg-black text-white rounded-full p-1.5 transition"
                   >
                     <X size={10} />
                   </button>
@@ -240,7 +240,7 @@ export default function AddProjectModal({
 
           {/* DESCRIPTION */}
           <div>
-            <label className="text-xs text-white/50">
+            <label className="text-xs font-medium text-zinc-600">
               Description
             </label>
 
@@ -249,7 +249,7 @@ export default function AddProjectModal({
               onChange={(e) =>
                 setDesc(e.target.value)
               }
-              className="w-full mt-2 px-4 py-3 min-h-[110px] bg-[#111] border border-white/10 rounded-2xl outline-none resize-none text-sm"
+              className="w-full mt-2 px-4 py-3 min-h-[110px] bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none resize-none text-sm focus:bg-white focus:border-zinc-400 transition"
             />
           </div>
 
@@ -261,7 +261,7 @@ export default function AddProjectModal({
               onChange={(e) =>
                 setLive(e.target.value)
               }
-              className="px-4 py-3 bg-[#111] border border-white/10 rounded-2xl outline-none text-sm"
+              className="px-4 py-3 bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none text-sm focus:bg-white focus:border-zinc-400 transition"
             />
 
             <input
@@ -270,7 +270,7 @@ export default function AddProjectModal({
               onChange={(e) =>
                 setGithub(e.target.value)
               }
-              className="px-4 py-3 bg-[#111] border border-white/10 rounded-2xl outline-none text-sm"
+              className="px-4 py-3 bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none text-sm focus:bg-white focus:border-zinc-400 transition"
             />
           </div>
 
@@ -281,7 +281,7 @@ export default function AddProjectModal({
             onChange={(e) =>
               setTech(e.target.value)
             }
-            className="w-full px-4 py-3 bg-[#111] border border-white/10 rounded-2xl outline-none text-sm"
+            className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none text-sm focus:bg-white focus:border-zinc-400 transition"
           />
 
           {/* FEATURES */}
@@ -291,7 +291,7 @@ export default function AddProjectModal({
             onChange={(e) =>
               setFeatures(e.target.value)
             }
-            className="w-full px-4 py-3 bg-[#111] border border-white/10 rounded-2xl outline-none text-sm"
+            className="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 rounded-2xl outline-none text-sm focus:bg-white focus:border-zinc-400 transition"
           />
 
           {/* ACTION */}
@@ -299,7 +299,7 @@ export default function AddProjectModal({
             <button
               type="button"
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-white/10 hover:bg-white/5 transition text-sm"
+              className="w-full sm:w-auto px-5 py-3 rounded-2xl border border-zinc-200 text-zinc-700 hover:bg-zinc-100 transition text-sm font-medium"
             >
               Cancel
             </button>
@@ -307,7 +307,7 @@ export default function AddProjectModal({
             <button
               type="submit"
               disabled={loading}
-              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white text-black font-medium hover:opacity-90 transition text-sm"
+              className="w-full sm:w-auto px-6 py-3 rounded-2xl bg-zinc-900 text-white font-medium hover:bg-zinc-800 transition text-sm shadow-sm disabled:opacity-50"
             >
               {loading ? "Saving..." : "Save"}
             </button>

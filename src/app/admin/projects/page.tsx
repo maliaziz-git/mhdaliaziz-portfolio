@@ -68,7 +68,7 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-hidden">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900 overflow-hidden">
       {/* SIDEBAR */}
       <div className="fixed left-0 top-0 h-screen z-40">
         <Sidebar />
@@ -80,18 +80,18 @@ export default function ProjectsPage() {
           {/* HEADER */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold">
+              <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900">
                 Projects
               </h1>
 
-              <p className="text-white/40 text-sm mt-1">
+              <p className="text-zinc-500 text-sm mt-1">
                 Manage your portfolio projects
               </p>
             </div>
 
             <button
               onClick={() => setOpen(true)}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 bg-white text-black rounded-xl hover:scale-[1.02] transition"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 bg-zinc-900 text-white rounded-xl hover:bg-zinc-800 transition shadow-sm cursor-pointer"
             >
               <Plus size={16} />
               Add Project
@@ -100,11 +100,11 @@ export default function ProjectsPage() {
 
           {/* GRID */}
           {loading ? (
-            <div className="text-white/40 text-sm">
+            <div className="text-zinc-400 text-sm">
               Loading projects...
             </div>
           ) : projects.length === 0 ? (
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] h-[240px] flex items-center justify-center text-white/35">
+            <div className="rounded-2xl border border-zinc-200 bg-white h-[240px] flex items-center justify-center text-zinc-400 shadow-sm">
               No projects found
             </div>
           ) : (
@@ -112,33 +112,33 @@ export default function ProjectsPage() {
               {projects.map((project) => (
                 <div
                   key={project.id}
-                  className="border border-white/10 bg-white/[0.03] rounded-2xl p-3 lg:p-4 hover:border-white/25 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  className="border border-zinc-200 bg-white shadow-sm rounded-2xl p-3 lg:p-4 hover:border-zinc-300 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col"
                 >
                   {/* IMAGE */}
-                  <div className="w-full h-[150px] sm:h-[160px] lg:h-[140px] rounded-xl overflow-hidden bg-white/[0.03] mb-3">
+                  <div className="w-full h-[150px] sm:h-[160px] lg:h-[140px] rounded-xl overflow-hidden bg-zinc-100 mb-3">
                     {project.image_url ? (
                       <img
                         src={project.image_url}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"
                       />
                     ) : (
-                      <div className="w-full h-full bg-white/[0.03]" />
+                      <div className="w-full h-full bg-zinc-100" />
                     )}
                   </div>
 
                   {/* TITLE */}
-                  <h2 className="font-semibold text-[14px] mb-1.5 line-clamp-1">
+                  <h2 className="font-semibold text-[14px] text-zinc-900 mb-1.5 line-clamp-1">
                     {project.title}
                   </h2>
 
                   {/* DESCRIPTION */}
-                  <p className="text-[12px] text-white/50 line-clamp-2 mb-3 leading-relaxed min-h-[34px]">
+                  <p className="text-[12px] text-zinc-500 line-clamp-2 mb-3 leading-relaxed min-h-[34px]">
                     {project.description}
                   </p>
 
                   {/* FOOTER */}
                   <div className="flex items-center justify-between mt-auto gap-3 flex-wrap">
-                    <span className="text-[10px] text-white/30">
+                    <span className="text-[10px] text-zinc-400">
                       {project.created_at
                         ? new Date(
                             project.created_at
@@ -152,7 +152,7 @@ export default function ProjectsPage() {
                           `/admin/projects/${project.id}`
                         )
                       }
-                      className="px-3 py-1.5 rounded-xl border border-white/10 hover:bg-white hover:text-black transition text-[12px]"
+                      className="px-3 py-1.5 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 text-zinc-700 transition text-[12px] font-medium"
                     >
                       Details
                     </button>

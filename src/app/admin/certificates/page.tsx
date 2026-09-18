@@ -125,10 +125,10 @@ fetchCertificates
       showCancelButton: true,
       confirmButtonText: "Yes, Delete",
       cancelButtonText: "Cancel",
-      background: "#111",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
       confirmButtonColor: "#ef4444",
-      cancelButtonColor: "#27272a",
+      cancelButtonColor: "#71717a",
       reverseButtons: true,
     });
 
@@ -145,16 +145,16 @@ fetchCertificates
         icon: "success",
         timer: 1800,
         showConfirmButton: false,
-        background: "#111",
-        color: "#fff",
+        background: "#ffffff",
+        color: "#09090b",
       });
     } else {
       Swal.fire({
         title: "Failed",
         text: "Gagal menghapus certificate.",
         icon: "error",
-        background: "#111",
-        color: "#fff",
+        background: "#ffffff",
+        color: "#09090b",
       });
     }
   };
@@ -167,7 +167,7 @@ fetchCertificates
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900">
       {/* SIDEBAR */}
       <Sidebar />
 
@@ -177,9 +177,9 @@ fetchCertificates
           {/* HEADER */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold">Certificates</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold text-zinc-900">Certificates</h1>
 
-              <p className="text-sm text-white/40 mt-1">
+              <p className="text-sm text-zinc-500 mt-1">
                 Manage your certificates
               </p>
             </div>
@@ -189,7 +189,7 @@ fetchCertificates
                 resetForm();
                 setOpen(true);
               }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-white text-black hover:scale-[1.02] transition"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 rounded-2xl bg-zinc-900 text-white hover:bg-zinc-800 transition shadow-sm cursor-pointer font-medium"
             >
               <Plus size={16} />
               Add Certificate
@@ -198,9 +198,9 @@ fetchCertificates
 
           {/* CONTENT */}
           {loading ? (
-            <div className="text-white/50 text-sm">Loading certificates...</div>
+            <div className="text-zinc-400 text-sm">Loading certificates...</div>
           ) : certificates.length === 0 ? (
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] h-[240px] flex items-center justify-center text-white/35">
+            <div className="rounded-2xl border border-zinc-200 bg-white h-[240px] flex items-center justify-center text-zinc-400 shadow-sm">
               No certificates found
             </div>
           ) : (
@@ -208,27 +208,27 @@ fetchCertificates
               {certificates.map((item) => (
                 <div
                   key={item.id}
-                  className="border border-white/10 bg-white/[0.03] rounded-2xl p-4 hover:border-white/25 hover:-translate-y-1 transition-all duration-300 flex flex-col"
+                  className="border border-zinc-200 bg-white shadow-sm hover:shadow-md hover:border-zinc-300 rounded-2xl p-4 transition-all duration-300 flex flex-col hover:-translate-y-1"
                 >
                   {/* IMAGE */}
-                  <div className="w-full h-[150px] rounded-xl overflow-hidden bg-white/[0.03] mb-4">
+                  <div className="w-full h-[150px] rounded-xl overflow-hidden bg-zinc-100 mb-4">
                     {item.image_url ? (
                       <img
                         src={item.image_url}
                         className="w-full h-full object-cover hover:scale-105 transition duration-500"
                       />
                     ) : (
-                      <div className="w-full h-full bg-white/[0.03]" />
+                      <div className="w-full h-full bg-zinc-100" />
                     )}
                   </div>
 
                   {/* TITLE */}
-                  <h2 className="font-semibold text-[15px] mb-3 line-clamp-2 min-h-[42px]">
+                  <h2 className="font-semibold text-[15px] text-zinc-900 mb-3 line-clamp-2 min-h-[42px]">
                     {item.title}
                   </h2>
 
                   {/* DATE */}
-                  <span className="text-[11px] text-white/30 mb-4">
+                  <span className="text-[11px] text-zinc-400 mb-4">
                     {item.created_at
                       ? new Date(item.created_at).toLocaleDateString()
                       : "No Date"}
@@ -238,7 +238,7 @@ fetchCertificates
                   <div className="flex gap-2 mt-auto">
                     <button
                       onClick={() => handleEdit(item)}
-                      className="flex-1 px-3 py-2 rounded-xl border border-white/10 hover:bg-white/10 transition flex items-center justify-center gap-2 text-sm"
+                      className="flex-1 px-3 py-2 rounded-xl border border-zinc-200 bg-zinc-50 hover:bg-zinc-100 text-zinc-700 transition flex items-center justify-center gap-2 text-sm font-medium"
                     >
                       <Pencil size={14} />
                       Edit
@@ -246,7 +246,7 @@ fetchCertificates
 
                     <button
                       onClick={() => handleDelete(item.id)}
-                      className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 transition flex items-center justify-center text-red-300"
+                      className="w-10 h-10 rounded-xl bg-red-50 border border-red-200 hover:bg-red-100 transition flex items-center justify-center text-red-600"
                     >
                       <Trash2 size={15} />
                     </button>
@@ -260,11 +260,11 @@ fetchCertificates
 
       {/* MODAL */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-end sm:items-center justify-center px-3 sm:px-4 py-4">
-          <div className="w-full max-w-md rounded-t-3xl sm:rounded-3xl bg-[#111] border border-white/10 p-5 sm:p-6 max-h-[92vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end sm:items-center justify-center px-3 sm:px-4 py-4">
+          <div className="w-full max-w-md rounded-t-3xl sm:rounded-3xl bg-white border border-zinc-200 shadow-xl p-5 sm:p-6 max-h-[92vh] overflow-y-auto text-zinc-900">
             {/* HEADER */}
             <div className="flex items-center justify-between mb-5">
-              <h2 className="text-lg sm:text-xl font-semibold">
+              <h2 className="text-lg sm:text-xl font-semibold text-zinc-900">
                 {editId ? "Edit Certificate" : "Add Certificate"}
               </h2>
 
@@ -273,21 +273,21 @@ fetchCertificates
                   setOpen(false);
                   resetForm();
                 }}
-                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center"
+                className="w-9 h-9 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-700 flex items-center justify-center"
               >
                 <X size={16} />
               </button>
             </div>
 
             {/* IMAGE */}
-            <label className="border border-dashed border-white/10 rounded-2xl bg-[#0f0f0f] h-44 sm:h-52 flex flex-col items-center justify-center cursor-pointer overflow-hidden mb-4">
+            <label className="border border-dashed border-zinc-300 rounded-2xl bg-zinc-50 hover:bg-zinc-100 h-44 sm:h-52 flex flex-col items-center justify-center cursor-pointer overflow-hidden mb-4 transition">
               {preview ? (
                 <img src={preview} className="w-full h-full object-cover" />
               ) : (
                 <>
-                  <Upload size={24} className="text-white/50 mb-2" />
+                  <Upload size={24} className="text-zinc-400 mb-2" />
 
-                  <p className="text-sm text-white/60">
+                  <p className="text-sm text-zinc-500 font-medium">
                     Upload Certificate Image
                   </p>
                 </>
@@ -306,7 +306,7 @@ fetchCertificates
               placeholder="Certificate Title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-4 py-3 rounded-2xl bg-[#0f0f0f] border border-white/10 outline-none mb-5 text-sm"
+              className="w-full px-4 py-3 rounded-2xl bg-zinc-50 border border-zinc-200 outline-none mb-5 text-sm text-zinc-900 focus:bg-white focus:border-zinc-400 transition"
             />
 
             {/* BUTTON */}
@@ -316,7 +316,7 @@ fetchCertificates
                   setOpen(false);
                   resetForm();
                 }}
-                className="w-full sm:w-auto px-4 py-3 rounded-xl border border-white/10 hover:bg-white/5"
+                className="w-full sm:w-auto px-4 py-3 rounded-xl border border-zinc-200 hover:bg-zinc-100 text-zinc-700 font-medium"
               >
                 Cancel
               </button>
@@ -324,7 +324,7 @@ fetchCertificates
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-white text-black font-medium"
+                className="w-full sm:w-auto px-5 py-3 rounded-xl bg-zinc-900 text-white font-medium hover:bg-zinc-800 shadow-sm"
               >
                 {saving ? "Saving..." : "Save"}
               </button>

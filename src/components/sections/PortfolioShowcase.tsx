@@ -82,7 +82,7 @@ export default function PortfolioShowcase() {
 
       <section
         id="portfolio"
-        className="w-full max-w-[1450px] mx-auto px-8 md:px-12 lg:px-20 pt-24 pb-24 text-white"
+        className="w-full max-w-[1450px] mx-auto px-8 md:px-12 lg:px-20 pt-24 pb-24 text-zinc-900"
       >
         {/* HEADER */}
         <motion.div
@@ -95,7 +95,7 @@ export default function PortfolioShowcase() {
             Portfolio Showcase
           </h1>
 
-          <p className="text-white/55 max-w-xl mx-auto text-sm md:text-base">
+          <p className="text-zinc-500 max-w-xl mx-auto text-sm md:text-base">
             Explore my journey through projects,
             certifications, and technical expertise.
           </p>
@@ -103,7 +103,7 @@ export default function PortfolioShowcase() {
 
         {/* TAB */}
         <div className="flex justify-center mb-10">
-          <div className="w-full max-w-3xl rounded-full border border-white/10 bg-white/5 p-2 flex gap-2 backdrop-blur-xl">
+          <div className="w-full max-w-3xl rounded-full border border-zinc-200 bg-zinc-100/90 p-1.5 flex gap-2 backdrop-blur-xl shadow-inner">
             {[
               'projects',
               'certificates',
@@ -118,10 +118,10 @@ export default function PortfolioShowcase() {
                     setShowAllProjects(false)
                   }
                 }}
-                className={`flex-1 rounded-full py-3 text-sm transition-all duration-300 ${
+                className={`flex-1 rounded-full py-2.5 text-sm font-medium transition-all duration-300 ${
                   activeTab === tab
-                    ? 'bg-white/10 text-white'
-                    : 'text-white/50 hover:text-white'
+                    ? 'bg-white text-zinc-900 shadow-sm'
+                    : 'text-zinc-500 hover:text-zinc-800'
                 }`}
               >
                 {tab === 'projects'
@@ -223,7 +223,7 @@ export default function PortfolioShowcase() {
                             !showAllProjects
                           )
                         }
-                        className="px-6 py-3 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl text-sm text-white/75 hover:text-white transition flex items-center gap-2"
+                        className="px-6 py-3 rounded-full border border-zinc-200 bg-white text-sm text-zinc-700 hover:text-zinc-900 hover:bg-zinc-50 shadow-sm transition flex items-center gap-2"
                       >
                         <AnimatePresence mode="wait">
                           <motion.div
@@ -300,16 +300,16 @@ export default function PortfolioShowcase() {
                         )
                         setPreviewOpen(true)
                       }}
-                      className="group cursor-pointer rounded-[26px] border border-white/10 bg-white/5 p-4 backdrop-blur-xl"
+                      className="group cursor-pointer rounded-[26px] border border-zinc-200 bg-white p-4 shadow-sm hover:shadow-md transition-shadow"
                     >
-                      <div className="rounded-2xl overflow-hidden border border-white/10 h-56">
+                      <div className="rounded-2xl overflow-hidden border border-zinc-200 h-56">
                         <img
                           src={item.image_url}
                           className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
                         />
                       </div>
 
-                      <h3 className="mt-4 text-[15px] font-semibold text-center text-white/90">
+                      <h3 className="mt-4 text-[15px] font-semibold text-center text-zinc-800">
                         {item.title}
                       </h3>
                     </motion.div>
@@ -318,57 +318,56 @@ export default function PortfolioShowcase() {
             )}
 
             {/* TECH STACK */}
-            {/* TECH STACK */}
-{activeTab === 'techstack' && (
-  <div className="min-h-[360px] flex justify-center">
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-5xl w-full">
-      {!loading &&
-        techStacks?.map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{
-              opacity: 0,
-              scale: 0.9,
-              y: 20,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.45,
-              delay: index * 0.04,
-            }}
-            whileHover={{
-              y: -5,
-              scale: 1.04,
-            }}
-            className="group rounded-[24px] border border-white/10 bg-white/[0.04] backdrop-blur-xl flex flex-col items-center justify-center gap-3 h-[125px] w-[125px] mx-auto"
-          >
-            <div className="relative flex items-center justify-center">
-              {/* GLOW */}
-              <div className="absolute w-[70px] h-[70px] rounded-full bg-white/20 blur-2xl opacity-0 group-hover:opacity-100 transition duration-500" />
+            {activeTab === 'techstack' && (
+              <div className="min-h-[360px] flex justify-center">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 max-w-5xl w-full">
+                  {!loading &&
+                    techStacks?.map((item, index) => (
+                      <motion.div
+                        key={item.id}
+                        initial={{
+                          opacity: 0,
+                          scale: 0.9,
+                          y: 20,
+                        }}
+                        whileInView={{
+                          opacity: 1,
+                          scale: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          duration: 0.45,
+                          delay: index * 0.04,
+                        }}
+                        whileHover={{
+                          y: -5,
+                          scale: 1.04,
+                        }}
+                        className="group rounded-[24px] border border-zinc-200 bg-white shadow-sm hover:shadow-md flex flex-col items-center justify-center gap-3 h-[125px] w-[125px] mx-auto transition-all"
+                      >
+                        <div className="relative flex items-center justify-center">
+                          {/* GLOW */}
+                          <div className="absolute w-[70px] h-[70px] rounded-full bg-zinc-200 blur-2xl opacity-0 group-hover:opacity-80 transition duration-500" />
 
-              {item.logo_url ? (
-                <img
-                  src={item.logo_url}
-                  alt={item.name}
-                  className="relative z-10 w-[56px] h-[56px] object-contain"
-                />
-              ) : (
-                <div className="relative z-10 w-[56px] h-[56px] rounded-2xl bg-white/10" />
-              )}
-            </div>
+                          {item.logo_url ? (
+                            <img
+                              src={item.logo_url}
+                              alt={item.name}
+                              className="relative z-10 w-[56px] h-[56px] object-contain"
+                            />
+                          ) : (
+                            <div className="relative z-10 w-[56px] h-[56px] rounded-2xl bg-zinc-100" />
+                          )}
+                        </div>
 
-            <p className="text-[11px] text-white/80 text-center leading-tight px-2 line-clamp-1">
-              {item.name}
-            </p>
-          </motion.div>
-        ))}
-    </div>
-  </div>
-)}
+                        <p className="text-[11px] text-zinc-700 font-medium text-center leading-tight px-2 line-clamp-1">
+                          {item.name}
+                        </p>
+                      </motion.div>
+                    ))}
+                </div>
+              </div>
+            )}
           </motion.div>
         </AnimatePresence>
       </section>

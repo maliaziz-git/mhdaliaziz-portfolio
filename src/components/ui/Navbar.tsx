@@ -150,10 +150,11 @@ export default function Navbar() {
           width: '100%',
           borderRadius: 999,
           backgroundColor: scrolled
-            ? 'rgba(13,13,13,0.85)'
-            : 'rgba(13,13,13,0.5)',
+            ? 'rgba(255,255,255,0.85)'
+            : 'rgba(255,255,255,0.65)',
           backdropFilter: 'blur(12px)',
           border: '1px solid var(--border)',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
         }}
       >
         <span
@@ -200,7 +201,7 @@ export default function Navbar() {
                       left: 0,
                       width: '100%',
                       height: 1,
-                      background: 'white',
+                      background: 'var(--text-primary)',
                       transform: isActive
                         ? 'scaleX(1)'
                         : 'scaleX(0)',
@@ -224,9 +225,9 @@ export default function Navbar() {
               cursor: 'pointer',
             }}
           >
-            <span style={{ width: 20, height: 2, background: 'white' }} />
-            <span style={{ width: 20, height: 2, background: 'white' }} />
-            <span style={{ width: 20, height: 2, background: 'white' }} />
+            <span style={{ width: 20, height: 2, background: 'var(--text-primary)' }} />
+            <span style={{ width: 20, height: 2, background: 'var(--text-primary)' }} />
+            <span style={{ width: 20, height: 2, background: 'var(--text-primary)' }} />
           </div>
         )}
       </div>
@@ -239,9 +240,10 @@ export default function Navbar() {
           style={{
             marginTop: 10,
             borderRadius: 16,
-            background: 'rgba(13,13,13,0.9)',
+            background: 'rgba(255,255,255,0.95)',
             border: '1px solid var(--border)',
             backdropFilter: 'blur(12px)',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
             padding: 20,
             display: 'flex',
             flexDirection: 'column',

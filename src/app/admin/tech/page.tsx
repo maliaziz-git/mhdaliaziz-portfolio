@@ -128,10 +128,10 @@ export default function TechStackPage() {
       showCancelButton: true,
       confirmButtonText: "Yes, Delete",
       cancelButtonText: "Cancel",
-      background: "#111",
-      color: "#fff",
+      background: "#ffffff",
+      color: "#09090b",
       confirmButtonColor: "#ef4444",
-      cancelButtonColor: "#27272a",
+      cancelButtonColor: "#71717a",
       reverseButtons: true,
     });
 
@@ -153,16 +153,16 @@ export default function TechStackPage() {
         icon: "success",
         timer: 1800,
         showConfirmButton: false,
-        background: "#111",
-        color: "#fff",
+        background: "#ffffff",
+        color: "#09090b",
       });
     } else {
       Swal.fire({
         title: "Failed",
         text: "Gagal menghapus tech stack.",
         icon: "error",
-        background: "#111",
-        color: "#fff",
+        background: "#ffffff",
+        color: "#09090b",
       });
     }
   };
@@ -175,7 +175,7 @@ export default function TechStackPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-zinc-50 text-zinc-900">
       {/* SIDEBAR */}
       <div className="fixed left-0 top-0 h-screen z-40">
         <Sidebar />
@@ -187,11 +187,11 @@ export default function TechStackPage() {
           {/* HEADER */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold">
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-zinc-900">
                 Tech Stack
               </h1>
 
-              <p className="text-sm text-white/40 mt-1">
+              <p className="text-sm text-zinc-500 mt-1">
                 Manage technology stack
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function TechStackPage() {
                 resetForm();
                 setOpen(true);
               }}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white text-black hover:scale-[1.02] transition"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm transition font-medium text-sm"
             >
               <Plus size={16} />
               Add Tech
@@ -210,11 +210,11 @@ export default function TechStackPage() {
 
           {/* GRID */}
           {loading ? (
-            <div className="text-white/40 text-sm">
+            <div className="text-zinc-500 text-sm">
               Loading...
             </div>
           ) : techStacks.length === 0 ? (
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] h-[220px] flex items-center justify-center text-white/35 text-sm">
+            <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm h-[220px] flex items-center justify-center text-zinc-400 text-sm">
               No tech stack
             </div>
           ) : (
@@ -222,38 +222,38 @@ export default function TechStackPage() {
               {techStacks.map((item) => (
                 <div
                   key={item.id}
-                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 sm:p-5 hover:border-white/20 transition"
+                  className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-4 sm:p-5 hover:border-zinc-300 hover:shadow-md transition"
                 >
                   <div className="flex justify-between items-start mb-4">
-                    <div className="w-14 h-14 rounded-2xl bg-white/[0.04] border border-white/10 overflow-hidden flex items-center justify-center shrink-0">
+                    <div className="w-14 h-14 rounded-2xl bg-zinc-50 border border-zinc-200 overflow-hidden flex items-center justify-center shrink-0">
                       {item.logo_url ? (
                         <img
                           src={item.logo_url}
                           className="w-full h-full object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full bg-white/[0.03]" />
+                        <div className="w-full h-full bg-zinc-100" />
                       )}
                     </div>
 
                     <div className="flex gap-2 ml-3">
                       <button
                         onClick={() => handleEdit(item)}
-                        className="w-9 h-9 rounded-xl border border-white/10 hover:bg-white/10 flex items-center justify-center transition"
+                        className="w-9 h-9 rounded-xl border border-zinc-200 text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 flex items-center justify-center transition"
                       >
                         <Pencil size={14} />
                       </button>
 
                       <button
                         onClick={() => handleDelete(item.id)}
-                        className="w-9 h-9 rounded-xl bg-red-500/10 border border-red-500/20 text-red-300 flex items-center justify-center hover:bg-red-500/20 transition"
+                        className="w-9 h-9 rounded-xl bg-red-50 border border-red-200 text-red-600 flex items-center justify-center hover:bg-red-100 transition"
                       >
                         <Trash2 size={14} />
                       </button>
                     </div>
                   </div>
 
-                  <h2 className="text-[14px] sm:text-[15px] font-medium break-words leading-relaxed">
+                  <h2 className="text-[14px] sm:text-[15px] font-medium text-zinc-800 break-words leading-relaxed">
                     {item.name}
                   </h2>
                 </div>
@@ -265,11 +265,11 @@ export default function TechStackPage() {
 
       {/* MODAL */}
       {open && (
-        <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center px-4 py-6">
-          <div className="w-full max-w-md rounded-3xl bg-[#111] border border-white/10 p-5 sm:p-6 max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-center justify-center px-4 py-6">
+          <div className="w-full max-w-md rounded-3xl bg-white border border-zinc-200 shadow-xl p-5 sm:p-6 max-h-[90vh] overflow-y-auto text-zinc-900">
             {/* HEADER */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg sm:text-xl font-semibold">
+              <h2 className="text-lg sm:text-xl font-semibold text-zinc-900">
                 {editId ? "Edit Tech" : "Add Tech"}
               </h2>
 
@@ -278,14 +278,14 @@ export default function TechStackPage() {
                   setOpen(false);
                   resetForm();
                 }}
-                className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center shrink-0"
+                className="w-9 h-9 rounded-xl bg-zinc-100 hover:bg-zinc-200 text-zinc-600 flex items-center justify-center shrink-0 transition"
               >
                 <X size={16} />
               </button>
             </div>
 
             {/* IMAGE */}
-            <label className="border border-dashed border-white/10 rounded-2xl bg-[#0f0f0f] h-40 sm:h-44 flex flex-col items-center justify-center cursor-pointer overflow-hidden mb-4">
+            <label className="border border-dashed border-zinc-300 rounded-2xl bg-zinc-50 hover:bg-zinc-100/60 h-40 sm:h-44 flex flex-col items-center justify-center cursor-pointer overflow-hidden mb-4 transition">
               {preview ? (
                 <img
                   src={preview}
@@ -295,10 +295,10 @@ export default function TechStackPage() {
                 <>
                   <Upload
                     size={22}
-                    className="text-white/50 mb-2"
+                    className="text-zinc-400 mb-2"
                   />
 
-                  <p className="text-sm text-white/50">
+                  <p className="text-sm text-zinc-500">
                     Upload Logo
                   </p>
                 </>
@@ -317,7 +317,7 @@ export default function TechStackPage() {
               placeholder="Tech Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full px-4 py-3 rounded-2xl bg-[#0f0f0f] border border-white/10 outline-none mb-5 text-sm"
+              className="w-full px-4 py-3 rounded-2xl bg-zinc-50 border border-zinc-200 text-zinc-900 placeholder:text-zinc-400 outline-none mb-5 text-sm focus:bg-white focus:border-zinc-400 transition"
             />
 
             {/* BUTTONS */}
@@ -327,7 +327,7 @@ export default function TechStackPage() {
                   setOpen(false);
                   resetForm();
                 }}
-                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-white/10 hover:bg-white/5 transition"
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-zinc-200 text-zinc-700 hover:bg-zinc-100 transition text-sm font-medium"
               >
                 Cancel
               </button>
@@ -335,7 +335,7 @@ export default function TechStackPage() {
               <button
                 onClick={handleSave}
                 disabled={saving}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white text-black hover:opacity-90 transition"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-zinc-900 text-white hover:bg-zinc-800 transition text-sm font-medium disabled:opacity-50"
               >
                 {saving ? "Saving..." : "Save"}
               </button>

@@ -73,7 +73,7 @@ export default function Sidebar() {
       {/* TOP */}
       <div>
         {!hideTitle && (
-          <h1 className="text-lg font-semibold mb-8 tracking-wide text-white">
+          <h1 className="text-lg font-semibold mb-8 tracking-wide text-zinc-900">
             Admin Panel
           </h1>
         )}
@@ -102,20 +102,20 @@ export default function Sidebar() {
                   }}
                   className={`relative overflow-hidden flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group ${
                     active
-                      ? "bg-white text-black shadow-[0_0_25px_rgba(255,255,255,0.12)]"
-                      : "text-white/60 hover:text-white"
+                      ? "bg-zinc-900 text-white shadow-sm"
+                      : "text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100"
                   }`}
                 >
                   {/* Hover Glow */}
                   {!active && (
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-xl bg-gradient-to-r from-white/[0.06] to-transparent" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 rounded-xl bg-gradient-to-r from-zinc-100 to-transparent" />
                   )}
 
                   {/* Active Bar */}
                   {active && (
                     <motion.div
                       layoutId="activeSidebar"
-                      className="absolute left-0 top-2 bottom-2 w-[4px] rounded-full bg-black"
+                      className="absolute left-0 top-2 bottom-2 w-[4px] rounded-full bg-white"
                       transition={{
                         type: "spring",
                         stiffness: 350,
@@ -148,7 +148,7 @@ export default function Sidebar() {
       </div>
 
       {/* BOTTOM */}
-      <div className="text-xs text-white/35 tracking-wide">
+      <div className="text-xs text-zinc-400 tracking-wide">
         © 2026 Admin
       </div>
     </>
@@ -158,7 +158,7 @@ export default function Sidebar() {
     <>
       {/* DESKTOP */}
       {!isMobile && (
-        <aside className="fixed left-0 top-0 h-screen w-[250px] bg-black border-r border-white/10 p-6 flex flex-col justify-between overflow-hidden z-50">
+        <aside className="fixed left-0 top-0 h-screen w-[250px] bg-white border-r border-zinc-200 p-6 flex flex-col justify-between overflow-hidden z-50">
           <SidebarContent />
         </aside>
       )}
@@ -167,14 +167,14 @@ export default function Sidebar() {
       {isMobile && (
         <>
           {/* TOP BAR */}
-          <div className="fixed top-0 left-0 right-0 h-[70px] bg-black/95 backdrop-blur-xl border-b border-white/10 flex items-center justify-between px-5 z-[60]">
-            <h1 className="text-white font-semibold text-base">
+          <div className="fixed top-0 left-0 right-0 h-[70px] bg-white/95 backdrop-blur-xl border-b border-zinc-200 flex items-center justify-between px-5 z-[60]">
+            <h1 className="text-zinc-900 font-semibold text-base">
               Admin Panel
             </h1>
 
             <button
               onClick={() => setOpen(true)}
-              className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white"
+              className="w-10 h-10 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-800"
             >
               <Menu size={20} />
             </button>
@@ -190,7 +190,7 @@ export default function Sidebar() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onClick={() => setOpen(false)}
-                  className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[70]"
+                  className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[70]"
                 />
 
                 {/* SIDEBAR */}
@@ -203,17 +203,17 @@ export default function Sidebar() {
                     stiffness: 260,
                     damping: 28,
                   }}
-                  className="fixed left-0 top-0 h-screen w-[260px] bg-black border-r border-white/10 p-6 flex flex-col justify-between z-[80]"
+                  className="fixed left-0 top-0 h-screen w-[260px] bg-white border-r border-zinc-200 p-6 flex flex-col justify-between z-[80]"
                 >
                   {/* HEADER */}
                   <div className="flex items-center justify-between mb-8">
-                    <h1 className="text-lg font-semibold text-white">
+                    <h1 className="text-lg font-semibold text-zinc-900">
                       Admin Panel
                     </h1>
 
                     <button
                       onClick={() => setOpen(false)}
-                      className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white"
+                      className="w-9 h-9 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-800"
                     >
                       <X size={18} />
                     </button>
